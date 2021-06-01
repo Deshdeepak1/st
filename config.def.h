@@ -96,7 +96,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 0.93, alphaUnfocused = 0.8;
+float alpha = 0.93, alphaUnfocused = 1;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -145,7 +145,7 @@ unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;
 static unsigned int defaultcs = 257;
 static unsigned int defaultrcs = 257;
-unsigned int bg = 256, bgUnfocused = 16;
+unsigned int bg = 256, bgUnfocused = 256;
 
 /*
  * Default shape of cursor
@@ -157,11 +157,24 @@ unsigned int bg = 256, bgUnfocused = 16;
 static unsigned int cursorshape = 2;
 
 /*
+ * Whether to use pixel geometry or cell geometry
+ */
+
+static Geometry geometry = PixelGeometry;
+
+/*
  * Default columns and rows numbers
  */
 
 static unsigned int cols = 140;
 static unsigned int rows = 30;
+
+/*
+ * Default width and height (including borders!)
+ */
+
+static unsigned int width = 700;
+static unsigned int height = 400;
 
 /*
  * Default colour and shape of the mouse cursor
