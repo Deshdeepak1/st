@@ -7,7 +7,11 @@
  */
 static char *font = "Mononoki Nerd Font:pixelsize=14:antialias=true:autohint=true";
 /* Spare fonts */
-static char *font2[] = {};
+static char *font2[] = {
+    "NotoColorEmoji:pixelsize=14:antialias=true:autohint=true",
+    "FreeSerif:pixelsize=14:antialias=true:autohint=true",
+    "FreeSans:pixelsize=14:antialias=true:autohint=true",
+};
 static int borderpx = 2;
 
 /* disable bold, italic and roman fonts globally */
