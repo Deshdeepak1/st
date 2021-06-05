@@ -36,8 +36,8 @@ clean:
 dist: clean
 	mkdir -p st-$(VERSION)
 	cp -R FAQ LEGACY TODO LICENSE Makefile README config.mk\
-		config.def.h st.info st.1 arg.h st.h win.h $(SRC)\
-		st-$(VERSION)
+		config.def.h st.info st.1 arg.h st.h win.h icon.h\
+		boxdraw_data.h st.png st.desktop $(SRC) st-$(VERSION)
 	tar -cf - st-$(VERSION) | gzip > st-$(VERSION).tar.gz
 	rm -rf st-$(VERSION)
 
@@ -50,9 +50,15 @@ install: st
 	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/st.1
 	tic -sx st.info
 	@echo Please see the README file regarding the terminfo entry of st.
+	mkdir -p $(DESTDIR)$(PREFIX)/share/applications
+	cp -f st.desktop $(DESTDIR)$(PREFIX)/share/applications
+	mkdir -p $(DESTDIR)$(PREFIX)/share/pixmaps
+	cp -f st.png $(DESTDIR)$(PREFIX)/share/pixmaps
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/st
 	rm -f $(DESTDIR)$(MANPREFIX)/man1/st.1
+	rm -f $(DESTDIR)$(PREFIX)/share/applications/st.desktop
+	rm -f $(DESTDIR)$(PREFIX)/share/pixmaps/st.png
 
 .PHONY: all options clean dist install uninstall
